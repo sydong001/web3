@@ -1,13 +1,11 @@
 body{
-    background:rgb(194, 237, 229);
-    cursor:no-drop;
+    background-image: url(../static/24110307_7.jpg);
+    
 }
 
-
 div{
-
 	width: 280px;
-    height: 350px;
+    height: 400px;
     padding: 15px;
 
     background-color: white;
