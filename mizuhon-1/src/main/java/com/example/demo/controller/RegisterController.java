@@ -11,19 +11,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.UserInfo;
 import com.example.demo.repository.UserInfoRepository;
+
 @Service
 @Controller
-public class RedisterController {
+public class RegisterController {
 
 	@Autowired
 	private UserInfoRepository userInfoRepository;
 
 	@GetMapping("/register")
-	public String getLoginView() {
+	public String showregister() {
 		return "register";
 	}
 	@PostMapping("/register")
-	public ModelAndView login(
+	public ModelAndView commitregister(
 			@RequestParam("username") String username,// 
 			@RequestParam("Pwd") String pwd,//
 			ModelAndView mv) {

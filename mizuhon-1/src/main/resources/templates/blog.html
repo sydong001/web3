@@ -10,44 +10,18 @@
 <link rel ="stylesheet" th:href="@{/blog.css}">
 </head>
 <body>
-<form action ="google.com" method="get">
-<input type="claearch" name="example2" id="sant" size="30" maxlength="30" autofocus placeholder="検索を入力">
-<button>Search</button>
-<h1>javaの勉強<h1>
-<div>
-        <p><font size="5px">変数と型の種類</font></p>
-		<img th:src="@{/javapicture.png}"　width=400/>
-		<ul  class="pon" style="text-align:left;">
-		    <li>データを入れる箱のようなもの</li>
-		    <li>そのはこにはじゆうをつけることができる</li>
-		    <li>変数を使うためには,これから変数を使いますよーという宣言が必要</li>
-		</ul>
-		<span class="ton">型の種類</span>
+<p>Welcome <span th:text="${username}"> </span> </p>
+<form action ="/showeditor" method="post">
+     <input  type ="hidden" name="userId" th:value="${userId}"/>
+	<h1><p th:text="${title}"></p><h1>
+	<div>
+        <p th:text="${overview}"></p>
 		<hr/>
-		<p class="ton">整数</p>
-		<hr/>
-<pre style="text-align:left;">
-さきほど変数名の前に int という単語が表示されていたかと思います。
-この int というのは簡単に言うと データの種類で整数型 を意味します。
-
-int number;
-
-というのは
-変数名 number という箱に整数が入りますよー
-ということなのです。
-
-つまり、小数や文字はこの箱に入ることができません。
-整数のみです。
-小数や文字を代入したいときは別の型を使う必要があります。
-
-小数や文字の型はあとで説明するとして
-さきに整数の型を説明しますね。
-
-int はデータの種類では整数とさきほどお伝えしました。
-整数には違いないのですが整数だけでもいろいろと種類があるのです・・・
-</pre>
-            <div><a href="http://localhost:8080/editor">edit</a></div> 
+		<pre style="text-align:left;" th:text="${editorcontent}">
+		</pre>
+	    <input type="submit" id="submit" value="edit" style="color:white; background-color:rgb(128, 128, 255);"/>
+	</div> 
 	</form>
 </div>
 </body>
-</html> 
+</htmllang ="en" xmlns:th="https://thymeleaf.org"> 

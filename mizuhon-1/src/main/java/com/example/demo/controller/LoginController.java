@@ -32,11 +32,15 @@ public class LoginController {
 		mv.addObject("username",username);
 		UserInfo userInfo = userInfoRepository.findByUsername(username);
 		if ( userInfo !=null && pwd.equals(userInfo.getPassword())) {
-			mv.setViewName("blog");
-		} else {
+
+			ModelAndView  model = new ModelAndView("redirect:/showblog");   
+			model.addObject("userId", userInfo.getUserId());
+		    return model;
+		} else {   
+			mv.addObject("errmsg", "ユーザかパスワードが違います。");
 			mv.setViewName("login");
+			return mv;
 		}
-		return mv;
 	}
 }
 

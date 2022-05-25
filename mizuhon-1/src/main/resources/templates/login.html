@@ -12,13 +12,15 @@
 </head>
 <body>
 <div >
-<h2>Login<h2>
+<h2>Login</h2>
     <hr>
 <form action ="/login" method="post" >
-  <lable for ="username"><font size="3px">Username</font></lable><br>
+
+  <label name="errmsg" th:value="${errmsg}">
+  <label for ="username"><font size="3px">Username</font></label><br>
     <input class="ton" type ="text" id="username" name="username" placeholder="Enter User name" required><br>
-    <p>Welcome<span th:text="${username}"> </span> </p>
-    <lable for ="Password"><font size="3px"> Password</font></lable><br>
+    
+    <label for ="Password"><font size="3px"> Password</font></label><br>
     <input class="ton" type ="Password" id="Pwd" name="Pwd"  placeholder="Enter Password" required><br>
     <hr>
     <input type="submit" id="submit"  value="sign in" style="background-color:limegreen;color:white ;"><br>
