@@ -7,20 +7,20 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../static/blogwed.css">
+<link rel="stylesheet" th:href="@{/editor.css">
 </head>
 <body>
 <div style="width:800px;height: 800px; margin-left:auto;margin-right:auto;">
     <h1>Blog Editor</h1>
     <form action ="google.com" method="get">
         <table>
-            <tr><td><p class="ton"> 标题</p></td>
+            <tr><td><p class="ton"> tittle</p></td>
                 <td><input class="ton" type ="text" id="title" name="title" placeholder="请填写标题"/></td>                 
             </tr>
-            <tr><td><p class="ton"> 内容介绍</p></td>
-                <td><input class="ton" type ="text" id="content" name="title" placeholder="请写内容介绍"/></td>                
+            <tr><td><p class="ton"> overview</p></td>
+                <td><input class="ton" type ="text" id="content" name="overview" placeholder="请写内容介绍"/></td>                
             </tr>
-            <tr><td><p id="ton">编辑内容</p></td>
+            <tr><td><p id="ton">editorcontent</p></td>
                 <td><textarea></textarea></td>
             </tr>
                      <tr><td colspan="2"> <input type="submit" id="submit" value="提交" style="color:white; background-color:rgb(128, 128, 255);"></tdcolspan="2"></tr>

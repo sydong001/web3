@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel ="stylesheet" href="../static/studyblog.css">
+<link rel ="stylesheet" th:href="@{/blog.css}">
 </head>
 <body>
 <form action ="google.com" method="get">
@@ -16,7 +16,7 @@
 <h1>javaの勉強<h1>
 <div>
         <p><font size="5px">変数と型の種類</font></p>
-		<img src="../static/How-to-Download-and-install-Latest-Java-8-Update-241.png"　width=400/>
+		<img th:src="@{/javapicture.png}"　width=400/>
 		<ul  class="pon" style="text-align:left;">
 		    <li>データを入れる箱のようなもの</li>
 		    <li>そのはこにはじゆうをつけることができる</li>
@@ -46,6 +46,7 @@ int number;
 int はデータの種類では整数とさきほどお伝えしました。
 整数には違いないのですが整数だけでもいろいろと種類があるのです・・・
 </pre>
+            <div><a href="http://localhost:8080/editor">edit</a></div> 
 	</form>
 </div>
 </body>

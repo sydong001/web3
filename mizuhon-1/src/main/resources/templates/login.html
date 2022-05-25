@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 
-<html>
+<html lang ="en" xmlns:th="https://thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>page Title</title>
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel ="stylesheet" href="../static/login.css">
+<link rel ="stylesheet" th:href="@{/login.css}"type="text/css">
+
 </head>
 <body>
 <div >
 <h2>Login<h2>
-    <hr/>
-<form action ="google.com" method="post">
-  <lable for ="username"><font size="3px">Username</lable></font><br>
+    <hr>
+<form action ="/login" method="post" >
+  <lable for ="username"><font size="3px">Username</font></lable><br>
     <input class="ton" type ="text" id="username" name="username" placeholder="Enter User name" required><br>
-    <lable for ="Password"><font size="3px"> Password</lable></font><br>
-    <input class="ton" type ="Password" id="Pwd" name="Pwd" placeholder="Enter Password" required><br>
-    <hr/>
-    <input type="submit" id="submit" value="sign in" style="background-color:limegreen;color:white ;"><br>
-	<p style="background:rgb(244, 243, 243)"><font size="2px">Have no account yet?<a href="url">Register</a></font></p>
+    <p>Welcome<span th:text="${username}"> </span> </p>
+    <lable for ="Password"><font size="3px"> Password</font></lable><br>
+    <input class="ton" type ="Password" id="Pwd" name="Pwd"  placeholder="Enter Password" required><br>
+    <hr>
+    <input type="submit" id="submit"  value="sign in" style="background-color:limegreen;color:white ;"><br>
+	<p style="background:rgb(244, 243, 243)"><font size="2px">Have no account yet?<a href="http://localhost:8080/register">Register</a></font></p>
 	</form>
 </div >
 </body>

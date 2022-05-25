@@ -7,14 +7,14 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="../static/register.css"/>
+   <link rel="stylesheet" th:href="@{/register.css}"/>
 </head>
 <body>
 <div>
 	<h2>Register<h2>
 	<h5>Please fill in this form to create an account.</h5>
 	<hr/> 
-	<form action ="google.com" method="get">
+	<form action ="/register" method="post">
 	   
 		 <lable for ="username"><b>User name</b></lable><br>
 	 
@@ -30,7 +30,7 @@
 	   
 	 <hr/>
 	 <input type="submit" id="submit" value="Register" style="color:white; background-color:limegreen;"><br>
-     <p style="background:rgb(244, 243, 243)">Already have an accout? <a href="url"> sign in</a></p>  
+     <p style="background:rgb(244, 243, 243)">Already have an accout? <a href="http://localhost:8080/login"> sign in</a></p>  
     </form> 	 	
 </div>
 </body>
