@@ -29,13 +29,12 @@ public class LoginController {
 			@RequestParam("username") String username,// 
 			@RequestParam("Pwd") String pwd,//
 			ModelAndView mv) {
-		mv.addObject("username",username);
 		UserInfo userInfo = userInfoRepository.findByUsername(username);
 		if ( userInfo !=null && pwd.equals(userInfo.getPassword())) {
 
-			ModelAndView  model = new ModelAndView("redirect:/showblog");   
-			model.addObject("userId", userInfo.getUserId());
-		    return model;
+			mv = new ModelAndView("redirect:/showblog");   
+			mv.addObject("userId", userInfo.getUserId());
+		    return mv;
 		} else {   
 			mv.addObject("errmsg", "ユーザかパスワードが違います。");
 			mv.setViewName("login");

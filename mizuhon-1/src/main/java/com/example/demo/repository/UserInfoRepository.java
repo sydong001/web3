@@ -8,6 +8,8 @@ import com.example.demo.model.UserInfo;
 
 @Repository
 public interface UserInfoRepository extends JpaRepository<UserInfo , Long> {
-	UserInfo findByUsername(String userName);
+
+	UserInfo findByUserId(Long userId);
+	UserInfo findByUsername(String username);
 	UserInfo saveAndFlush(UserInfo userInfo);
 }

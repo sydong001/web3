@@ -16,12 +16,18 @@
 	<h1><p th:text="${title}"></p><h1>
 	<div>
         <p th:text="${overview}"></p>
-		<hr/>
-		<pre style="text-align:left;" th:text="${editorcontent}">
-		</pre>
+		<hr>
+		<p><th:block th:if="${editorcontent}">
+    <th:block th:each="str, stat : ${editorcontent.split('\r\n|\r|\n', -1)}">
+        <th:block th:text="${str}"/>
+        <br th:if="${!stat.last}"/>
+    </th:block>
+</th:block>
+		</p>
+	
 	    <input type="submit" id="submit" value="edit" style="color:white; background-color:rgb(128, 128, 255);"/>
 	</div> 
 	</form>
 </div>
 </body>
-</htmllang ="en" xmlns:th="https://thymeleaf.org"> 
+</html> 

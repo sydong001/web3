@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>blogweb</title>
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" th:href="@{/editor.css}">
+	<meta charset="utf-8">
+	<title>blogweb</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" th:href="@{/editor.css}">
 </head>
+
 <body>
-<div style="width:800px;height: 800px; margin-left:auto;margin-right:auto;">
-    <h1>Blog Editor</h1>
-    <form action ="/editor" method="post">
-        <input  type ="hidden" name="userId" th:value="${userId}"/>   
-        <table>
-            <tr><td><p class="ton"> tittle</p></td>
-                <td><input class="ton" type ="text" id="title" name="title" th:value="${title}" placeholder="请填写标题"/></td>                 
-            </tr>
-            <tr><td><p class="ton"> overview</p></td>
-                <td><input class="ton" type ="text" id="content" name="overview" th:value="${overview}" placeholder="请写内容介绍"/></td>                
-            </tr>
-            <tr><td><p id="ton">editorcontent</p></td>
-                <td><textarea name="editorcontent" th:text="${editorcontent}"></textarea></td>
-            </tr><td colspan="2">
-            	<input type="submit" id="submit" value="提交" style="color:white; background-color:rgb(128, 128, 255);"/>
-            </td></tr>
-            
-        </table>
-    </form>
-</div>
+	<div style="width:800px;height: 800px; margin-left:auto;margin-right:auto;">
+		<h1>Blog Editor</h1>
+		<form action="/editor" method="post">
+			<input type="hidden" name="userId" th:value="${userId}" />
+			<table>
+				<tr>
+					<td>
+						<p class="ton"> tittle</p>
+					</td>
+					<td><input class="ton" type="text" id="title" name="title" th:value="${title}"
+							placeholder="请填写标题" /></td>
+				</tr>
+				<tr>
+					<td>
+						<p class="ton"> overview</p>
+					</td>
+					<td><input class="ton" type="text" id="content" name="overview" th:value="${overview}"
+							placeholder="请写内容介绍" /></td>
+				</tr>
+				<tr>
+					<td>
+						<p id="ton">editorcontent</p>
+					</td>
+					<td><textarea name="editorcontent" th:text="${editorcontent}"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+					</td><td>
+						<input type="submit" id="submit"  name="update" value="commit"
+							style="color:white; background-color:rgb(128, 128, 255);" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="submit" id="delete" name="delete" value="delete"
+								style="color:white; background-color:rgb(128,128,255);" />
+					</td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
 </body>
+
 </html>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,30 +23,9 @@ public class EditorController {
 	@Autowired
 	private BlogInfoRepository blogInfoRepository;
 
-	@RequestMapping("/showblog")
-	public String showblog(@RequestParam("userId") Long userId,
-			Model model) {
-		
-		BlogInfo blogInfo= blogInfoRepository.findByUserId(userId);
-		if (blogInfo == null) {
-			blogInfo = new BlogInfo();
-			blogInfo.setUserId(userId);
-			blogInfo.setTitle("");
-			blogInfo.setOverview("");
-			blogInfo.setEditorcontent("");
-		}
-		model.addAttribute("userId", userId);
-		model.addAttribute("title", blogInfo.getTitle());
-		model.addAttribute("overview", blogInfo.getOverview());
-		model.addAttribute("editorcontent", blogInfo.getEditorcontent());
-		return "blog";
-	}
-	
 	@PostMapping("/showeditor")
-	public String showeditor(@RequestParam("userId") Long userId,
-			Model model) {
-		
-		BlogInfo blogInfo= blogInfoRepository.findByUserId(userId);
+	public String showEditor(@RequestParam("userId") Long userId, Model model) {
+		BlogInfo blogInfo = blogInfoRepository.findByUserId(userId);
 		if (blogInfo == null) {
 			blogInfo = new BlogInfo();
 			blogInfo.setUserId(userId);
@@ -60,8 +40,9 @@ public class EditorController {
 		return "editor";
 	}
 
-	@PostMapping("/editor")
-	public ModelAndView commiteditor(@RequestParam("userId") Long userId, //
+
+	@RequestMapping(value = "editor", params = "update", method = RequestMethod.POST)
+	public ModelAndView commitUpdate(@RequestParam("userId") Long userId, //
 			@RequestParam("title") String title, //
 			@RequestParam("overview") String overview, //
 			@RequestParam("editorcontent") String editorContent, //
@@ -77,7 +58,22 @@ public class EditorController {
 		blogInfo.setEditorcontent(editorContent);
 		blogInfoRepository.saveAndFlush(blogInfo);
 
-		ModelAndView  model = new ModelAndView("redirect:/showblog");   
+		ModelAndView model = new ModelAndView("redirect:/showblog");
+		model.addObject("userId", userId);
+		return model;
+	}
+
+	@RequestMapping(value = "editor", params = "delete", method = RequestMethod.POST)
+	public ModelAndView commitdelete(@RequestParam("userId") Long userId, //
+			@RequestParam("title") String title, //
+			@RequestParam("overview") String overview, //
+			@RequestParam("editorcontent") String editorContent, //
+			ModelAndView mv) {
+		mv.addObject("userId", userId);
+		BlogInfo blogInfo = blogInfoRepository.findByUserId(userId);
+		blogInfoRepository.deleteById(blogInfo.getId());
+		
+		ModelAndView model = new ModelAndView("redirect:/showblog");
 		model.addObject("userId", userId);
 		return model;
 	}
